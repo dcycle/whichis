@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Countries",
+    "singular": "country",
+    "languages": [
+      "en"
+    ],
+    "comparisons": {
+      "population": {
+        "title": "Population",
+        "more": {
+          "en": "has more people"
+        },
+        "less": {
+          "en": "has fewer people"
+        }
+      }
+    }
+  },
+  "data": [
+    {
+      "name": {
+        "en": "The United States"
+      },
+      "picture": "images/us.png",
+      "population": "331002651"
+    },
+    {
+      "name": {
+        "en": "Canada"
+      },
+      "picture": "images/ca.png",
+      "population": "36991981"
+    }
+  ]
+}

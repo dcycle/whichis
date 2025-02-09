@@ -1,0 +1,42 @@
+.main-font {
+  font-family: "DynaPuff", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.centered {
+  text-align: center;
+}
+
+.logo {
+  margin-right: 10px;
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+}
+
+.playful {
+  font-size: 2em;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.playful-inner {
+  top: -9px;
+  position: absolute;
+}
+
+.hide-initially {
+  display: none;
+}
+
+.language {
+  text-transform: uppercase;
+  margin-left: 10px;
+}

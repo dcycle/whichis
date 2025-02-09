@@ -1,0 +1,18 @@
+{
+  "datasets": [
+    "countries"
+  ],
+  "languages": [
+    "en",
+    "fr"
+  ],
+  "colors": [
+    "#f96d00",
+    "#ff9a3c",
+    "#ffc93c",
+    "#155263",
+    "#00204a",
+    "#005792",
+    "#00bbf0"
+  ]
+}
