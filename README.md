@@ -1,7 +1,7 @@
 Which Is
 -----
 
-[fr](https://github.com/dcycle/whichis/blob/master/README-fr.md) | [en]
+[fr](https://github.com/dcycle/whichis/blob/master/README-fr.md) | en
 
 A game to compare items, for example the land mass of countries.
 

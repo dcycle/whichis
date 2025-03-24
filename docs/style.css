@@ -40,3 +40,16 @@
   text-transform: uppercase;
   margin-left: 10px;
 }
+
+header {
+  position: relative;
+}
+
+header .text-end {
+  position: absolute;
+  right: 0;
+}
+
+.my-border {
+  border: 3px solid black;
+}

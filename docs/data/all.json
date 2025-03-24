@@ -6,6 +6,14 @@
     "en",
     "fr"
   ],
+  "translations": {
+    "fr": {
+      "Which": "Quel(le)",
+      "?": " ?",
+      "Start Game": "Démarrer le jeu",
+      "https://github.com/dcycle/whichis/blob/master/README.md": "https://github.com/dcycle/whichis/blob/master/README-fr.md"
+    }
+  },
   "colors": [
     "#f96d00",
     "#ff9a3c",
