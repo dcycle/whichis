@@ -1,5 +1,6 @@
 /** Wrapper for the application. */
 class App extends Service {
+
   run() {
     try {
       this.s('preflight').check();
@@ -13,30 +14,37 @@ class App extends Service {
       this.s('dom').addError(error);
     }
   }
+
   resetAll() {
+    this.s('effect').stopFireworks();
+    $('.panel').hide();
+    $('.main').show();
     const lang = this.s('url').var('lang', 'en');
     this.s('urlBar').setHash('lang/' + lang);
     this.s('urlBar').refreshPage();
   }
+
   showRain() {
     this.s('effect').stopFireworks();
     $('.panel').hide();
     $('.rain').show();
   }
+
   showFireworks() {
     $('.panel').hide();
     $('.fireworks').show();
     this.s('effect').startFireworks();
   }
+
   showMain() {
-    this.s('effect').stopFireworks();
-    $('.panel').hide();
-    $('.main').show();
+    this.resetAll();
   }
+
   armStartGameLink() {
     $('.start-game a').off().click((e) => {
       e.preventDefault();
       this.s('gameController').startGame();
     });
   }
+
 }

@@ -1,4 +1,5 @@
 class MyGameController extends Service {
+
   startGame() {
     const that = this;
     this.s('dom').hide('.start-game');
@@ -9,17 +10,33 @@ class MyGameController extends Service {
       that.newGame(data).start();
     });
   }
-  stopGame(time, successful) {
+
+  stopGame(
+    time,
+    successful,
+  ) {
+    const result = new MyResult(
+      this.services,
+      successful,
+      time,
+    );
     alert('You have a ' + successful + '% success rate in ' + time + ' seconds.');
-    this.s('dom').stopClock();
+    this.s('clock').stop();
   }
-  newGame(data) {
+
+  newGame(
+    data,
+  ) {
     return new Game(this.services, data);
   }
+
   defaultGame() {
     return 'countries';
   }
-  loadGame(callback) {
+
+  loadGame(
+    callback,
+  ) {
     const gameName = this.gameRequestedInUrl();
     const that = this;
     jQuery.getJSON(
@@ -31,11 +48,16 @@ class MyGameController extends Service {
       that.s('app').resetAll();
     });
   }
-  setQuestion(question) {
+
+  setQuestion(
+    question,
+  ) {
     const title = question.title();
     this.s('dom').setQuestionTitle(title);
   }
+
   gameRequestedInUrl() {
     return this.s('url').var('game', '');
   }
+
 }

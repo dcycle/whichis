@@ -1,12 +1,21 @@
 class Tester {
-  assert(message, condition) {
+
+  assert(
+    message,
+    condition,
+  ) {
     console.log('Asserting ' + message);
     if (!condition) {
       throw message;
     }
     console.log('ok');
   }
-  assertEqual(message, first, second) {
+
+  assertEqual(
+    message,
+    first,
+    second,
+  ) {
     if (typeof first == 'undefined') {
       throw new Error('Do not pass undefined to assertEqual.');
     }
@@ -19,10 +28,14 @@ class Tester {
     }
     console.log('ok');
   }
-  testCase(name) {
+
+  testCase(
+    name,
+  ) {
     console.log('');
     console.log('---');
     console.log('Running test case ' + name);
     this[name]();
   }
+
 }

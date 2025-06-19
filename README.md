@@ -19,11 +19,3 @@ const container = document.querySelector('.display-5')
 
   https://codepen.io/arickle/pen/XKjMZY
 https://github.com/mudroljub/js-rain?tab=readme-ov-file
-
-    <div class="rain front-row"></div>
-    <div class="rain back-row"></div>
-    <div class="toggles">
-      <div class="splat-toggle toggle active">SPLAT</div>
-      <div class="back-row-toggle toggle active">BACK<br>ROW</div>
-      <div class="single-toggle toggle">SINGLE</div>
-    </div>

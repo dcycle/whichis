@@ -1,4 +1,5 @@
 class Question extends Service {
+
   constructor(
     services,
     entries,
@@ -26,7 +27,6 @@ class Question extends Service {
     this._entries.forEach((entry) => {
       console.log('check');
       if (correctAnswer === undefined) {
-        console.log('xxx correct answer is ' + entry.name);
         correctAnswer = entry;
       }
       else if (moreOrLess == 'more') {
@@ -51,15 +51,24 @@ class Question extends Service {
     this.s('dom').setQuestionItems(
       this._questions,
       function() {
+        game.processAnswerBefore(true);
+      },
+      function() {
+        game.processAnswerBefore(false);
+      },
+      function() {
         game.processAnswer(true);
-      }, function() {
+      },
+      function() {
         game.processAnswer(false);
       },
     );
   }
+
   updateQuestionMarkLogo() {
     this.s('dom').playfulQuestionMarksLogo(this.s('config').colors());
   }
+
   text() {
     return [
       {
@@ -87,4 +96,5 @@ class Question extends Service {
       },
     ]
   }
+
 }

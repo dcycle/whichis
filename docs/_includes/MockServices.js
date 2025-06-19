@@ -1,8 +1,15 @@
 class MockServices {
-  constructor(services) {
+
+  constructor(
+    services,
+  ) {
     this.services = services;
   }
-  get(name) {
+
+  get(
+    name,
+  ) {
     return this.services[name];
   }
+
 }

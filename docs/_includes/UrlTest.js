@@ -1,10 +1,12 @@
 class UrlTest extends Tester {
+
   run() {
     this.testCase('setGetHash');
     this.testCase('hashObject');
     this.testCase('var');
     this.testCase('setParam');
   }
+
   setGetHash() {
     const that = this;
     [
@@ -18,6 +20,7 @@ class UrlTest extends Tester {
       that.assertEqual('Making sure hash is set', hash, obj.getHash());
     });
   }
+
   hashObject() {
     const that = this;
     [
@@ -65,6 +68,7 @@ class UrlTest extends Tester {
       );
     });
   }
+
   var() {
     [
       {

@@ -1,5 +1,6 @@
 // /** Wrapper for the config object at ./data/all.json */
 class MyConfig extends Service {
+
   /** Prepare the config */
   async preload() {
     const that = this;

@@ -1,6 +1,9 @@
 /** Interact with the URL */
 class Url extends Service {
-  setHash(hash = '') {
+
+  setHash(
+    hash = '',
+  ) {
     this.s('urlBar').setHash(hash);
   }
 
@@ -9,7 +12,9 @@ class Url extends Service {
   }
 
   /** convert a hash a/b to an object {a: b} */
-  hashToObject(hash) {
+  hashToObject(
+    hash,
+  ) {
     if (typeof hash === 'undefined') {
       return {};
     }
@@ -32,7 +37,9 @@ class Url extends Service {
   }
 
   /** convert an object {a: b} to a hash a/b */
-  objectToHash(obj) {
+  objectToHash(
+    obj,
+  ) {
     let retComponents = [];
     for (const key in obj) {
       retComponents.push(encodeURIComponent(key) + '/' + encodeURIComponent(obj[key]));
@@ -41,7 +48,9 @@ class Url extends Service {
   }
 
   /** Normalize the hash by removing extra slashes */
-  cleanHash(hash) {
+  cleanHash(
+    hash,
+  ) {
     return this.objectToHash(this.hashToObject(hash));
   }
 
@@ -49,7 +58,10 @@ class Url extends Service {
    * If the hash is %2F/%2F/a/b, then a is b and / is /.
    * If the hash is a/b/a/c/a/d, it wil return b (the first occurrence).
    */
-  var(name, defaultValue = '') {
+  var(
+    name,
+    defaultValue = '',
+  ) {
     const hash = this.getHash();
     if (this.hashToObject(hash)[name]) {
       return this.hashToObject(hash)[name];
@@ -64,7 +76,10 @@ class Url extends Service {
    * %2F/%2F.
    * If the param already exists, it will be replaced.
    */
-  setParam(param, value) {
+  setParam(
+    param,
+    value,
+  ) {
     const hash = this.getHash();
     let hashObj = this.hashToObject(hash);
     hashObj[param] = value;

@@ -1,5 +1,8 @@
 class UrlBarMock {
-  constructor(hash = '') {
+
+  constructor(
+    hash = '',
+  ) {
     this._hash = hash;
   }
 
@@ -7,7 +10,10 @@ class UrlBarMock {
     return this._hash;
   }
 
-  setHash(hash) {
+  setHash(
+    hash,
+  ) {
     this._hash = hash;
   }
+
 }

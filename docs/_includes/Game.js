@@ -1,5 +1,9 @@
 class Game extends Service {
-  constructor(services, data) {
+
+  constructor(
+    services,
+    data,
+  ) {
     super(services);
     this.data = data;
     this.successful = 0;
@@ -7,49 +11,66 @@ class Game extends Service {
     this.totalQuestions = 10;
     this.setTranslations();
   }
-  processAnswer(success) {
+
+  processAnswer(
+    success,
+  ) {
     if(this.updateSuccessCount(success)) {
+      this.s('clock').stop();
       this.s('gameController').stopGame(
-        this.s('dom').currentTime(),
-        this.successful
+        this.s('clock').get(),
+        this.successRate(),
       );
     }
     else {
       this.createQuestion();
     }
   }
-  updateSuccessCount(success) {
+
+  successRate() {
+    const successRate = Math.round(this.successful / this.currentQuestionIndex * 100);
+    if (!isNaN(successRate)) {
+      return successRate;
+    }
+    return '...';
+  }
+
+  processAnswerBefore(success) {
     if (success) {
       this.successful++;
     }
-    const successRate = Math.round(this.successful / this.currentQuestionIndex * 100);
-    if (!isNaN(successRate)) {
-      $('.success-rate-value').text(successRate + '%');
-    }
+    $('.success-rate-value').text(this.successRate() + '%');
+  }
+
+  updateSuccessCount(
+    success,
+  ) {
     const total = this.totalQuestions;
     const current = ++this.currentQuestionIndex;
-    $('.current-question').text(current);
     $('.total-questions').text(total);
 
     if (current > total) {
       return true;
     }
+    else {
+      $('.current-question').text(current);
+    }
   }
+
   setTranslations() {
     const that = this;
     Object.keys(this.data.meta.translations).forEach((key) => {
       this.s('multilingual').setTranslations(key, this.data.meta.translations[key]);
     });
   }
+
   start() {
     this.createQuestion();
     $('.show-when-game-starts').show();
-    this.setClock();
+    this.s('clock').start();
     this.updateSuccessCount();
   }
-  setClock() {
-    this.s('dom').startClock();
-  }
+
   createQuestion() {
     const entries = this.findRandomEntries(2);
     const comparison = this.findRandomComparison();
@@ -67,7 +88,10 @@ class Game extends Service {
       this,
     );
   }
-  findRandomEntries(count) {
+
+  findRandomEntries(
+    count,
+  ) {
     const len = this.data.data.length;
     let ret = [];
     if (count > len) {
@@ -81,10 +105,13 @@ class Game extends Service {
     }
     return ret;
   }
+
   findRandomComparison() {
     return 'population';
   }
+
   randomMoreOrLess() {
     return (Math.random()>0.5)? 'more' : 'less';
   }
+
 }

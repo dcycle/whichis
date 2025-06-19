@@ -36,7 +36,10 @@ class MyMultilingualDom extends Service {
       this.setClickToStartLink();
     }
   }
-  setHomeButton(lang) {
+
+  setHomeButton(
+    lang,
+  ) {
     const that = this;
     $('.back-to-home').attr('href', '#lang/' + lang);
     $('.back-to-home').off().click(function(e) {
@@ -59,7 +62,9 @@ class MyMultilingualDom extends Service {
   }
 
   /** Of the language links (en, fr), make the appropriate one active */
-  setActiveLangLink(activeLang) {
+  setActiveLangLink(
+    activeLang,
+  ) {
     const that = this;
     $('.language').removeClass('active');
     $('.language').each(function() {
@@ -81,14 +86,18 @@ class MyMultilingualDom extends Service {
   }
 
   /** Set the active language */
-  setActiveLang(lang) {
+  setActiveLang(
+    lang,
+  ) {
     this.s('multilingual').setActiveLang(lang);
     this.translateInterface(lang);
     this.setActiveLangLink(lang);
   }
 
   /** Set the "Start Game" link title */
-  translateInterface(lang) {
+  translateInterface(
+    lang,
+  ) {
     const that = this;
     $('.translate-me-href').each(function() {
       const str = $(this).attr('translate-me-href');
@@ -107,14 +116,21 @@ class MyMultilingualDom extends Service {
   }
 
   /** Put languages */
-  putLanguages(languages) {
+  putLanguages(
+    languages,
+  ) {
     let first = true;
     languages.forEach((language) => {
       $('.languages').append(`<span class="language" data-lang="${language}">${language}</span>`);
     });
   }
 
-  setContent(selector, loc, content, args = {}) {
+  setContent(
+    selector,
+    loc,
+    content,
+    args = {},
+  ) {
     this.s('dom').setContent(selector, [
       {
         loc: loc,

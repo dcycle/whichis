@@ -1,4 +1,5 @@
 class UrlBar extends Service {
+
   getHash() {
     const ret = window.location.hash;
     if(ret.charAt(0) === '#') {
@@ -7,10 +8,15 @@ class UrlBar extends Service {
 
     return ret;
   }
-  setHash(hash = '') {
+
+  setHash(
+    hash = '',
+  ) {
     window.location.hash = hash;
   }
+
   refreshPage() {
     location.reload();
   }
+
 }

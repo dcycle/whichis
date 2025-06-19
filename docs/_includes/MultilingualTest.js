@@ -1,16 +1,21 @@
 class MultilingualTest extends Tester {
+
   run() {
     this.testCase('activeLang');
     this.testCase('setActiveLang');
     this.testCase('translationCrud');
     this.testCase('t');
   }
-  newObj(lang) {
+
+  newObj(
+    lang,
+  ) {
     return new Multilingual(new MockServices({
       'url': new UrlMock(lang),
       'urlBar': new UrlBarMock('lang/' + lang),
     }));
   }
+
   activeLang() {
     const that = this;
     [
@@ -33,6 +38,7 @@ class MultilingualTest extends Tester {
       this.assertEqual('Making sure activeLang works ' + expected, expected, obj.activeLang());
     });
   }
+
   setActiveLang() {
     const that = this;
     [
@@ -53,6 +59,7 @@ class MultilingualTest extends Tester {
       this.assertEqual('Making sure setActiveLang works ' + expected, expected, obj.s('url').getHash());
     });
   }
+
   translationCrud() {
     const that = this;
     [
@@ -84,6 +91,7 @@ class MultilingualTest extends Tester {
       );
     });
   }
+
   t() {
     const that = this;
     [
@@ -135,4 +143,5 @@ class MultilingualTest extends Tester {
       );
     });
   }
+
 }

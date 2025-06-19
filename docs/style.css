@@ -53,3 +53,7 @@ header .text-end {
 .my-border {
   border: 3px solid black;
 }
+
+.fireworks {
+  height:1000px !important
+}

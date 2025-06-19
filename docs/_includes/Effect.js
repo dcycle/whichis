@@ -1,15 +1,21 @@
 class Effect extends Service {
-  constructor(services) {
+
+  constructor(
+    services,
+  ) {
     super(services);
     const container = document.querySelector('.fireworks')
     this._fireworks = new Fireworks.default(container)
   }
+
   startFireworks() {
     this._fireworks.start()
   }
+
   stopFireworks() {
     this._fireworks.stop()
   }
+
   rain() {
     var makeItRain = function() {
       //clear out everything
@@ -55,4 +61,5 @@ class Effect extends Service {
     });
     makeItRain();
   }
+
 }

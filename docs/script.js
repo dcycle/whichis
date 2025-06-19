@@ -26,3 +26,5 @@
 {% include Game.js %}
 {% include Question.js %}
 {% include MyGameController.js %}
+{% include Clock.js %}
+{% include MyResult.js %}

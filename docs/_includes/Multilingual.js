@@ -1,5 +1,6 @@
 /** Multiligual system, like translations */
 class Multilingual extends Service {
+
   prepare() {
     const that = this;
     const translations = this.s('config').translations();
@@ -9,7 +10,9 @@ class Multilingual extends Service {
     });
   }
 
-  formatNumber(n) {
+  formatNumber(
+    n,
+  ) {
     return new Intl.NumberFormat(this.activeLang()).format(
       n,
     );
@@ -21,13 +24,17 @@ class Multilingual extends Service {
   }
 
   /** Set the active language */
-  setActiveLang(lang) {
+  setActiveLang(
+    lang,
+  ) {
     const hash = this.s('url').setParam('lang', lang);
     this.s('urlBar').setHash(hash);
   }
 
   /** Get the translation set. */
-  getTranslations(lang) {
+  getTranslations(
+    lang,
+  ) {
     if (lang == '') {
       return {};
     }
@@ -44,14 +51,22 @@ class Multilingual extends Service {
   clearTranslations() {
     this.translations = {};
   }
+
   /** Add translations to the set, overwriting existing ones. */
-  setTranslations(lang, translations) {
+  setTranslations(
+    lang,
+    translations,
+  ) {
     const previousTranslations = this.getTranslations(lang);
     this.translations[lang] = { ...previousTranslations, ...translations };
   }
 
   /** Translate a string. */
-  t(str, args = {}, lang = '') {
+  t(
+    str,
+    args = {},
+    lang = '',
+  ) {
     if (lang == '') {
       lang = this.activeLang();
     }
@@ -63,7 +78,10 @@ class Multilingual extends Service {
   }
 
   /** Internal function to replace args in a string with values. */
-  replaceArgs(str, args) {
+  replaceArgs(
+    str,
+    args,
+  ) {
     for (const key in args) {
       str = str.replaceAll(key, args[key]);
     }

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>This is the title of the webpage!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="fireworks" style="height:100px;width:100%;"></div>
+    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <!-- Usage -->
+    <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+
+    <script>
+      const container = document.querySelector('.fireworks')
+      const fireworks = new Fireworks.default(container)
+      fireworks.start()
+    </script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 /** Services singleton. Contains all other singletons. */
 class Services {
+
   /** Init all the singletons. */
   async init() {
     this.selfTester = await new SelfTester(this).preload();
@@ -15,8 +16,10 @@ class Services {
     this.gameController = await new MyGameController(this).preload();
     this.domTester = await new DomTester(this).preload();
     this.effect = await new Effect(this).preload();
+    this.clock = await new Clock(this).preload();
     return this;
   }
+
   /** Get a singleton. */
   get(name) {
     if (typeof this[name] == 'undefined') {
@@ -24,4 +27,5 @@ class Services {
     }
     return this[name];
   }
+
 }

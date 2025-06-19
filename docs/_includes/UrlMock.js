@@ -1,10 +1,16 @@
 
 class UrlMock {
-  constructor(value = '') {
+
+  constructor(
+    value = '',
+  ) {
     this._value = value;
   }
 
-  var(param, defaultValue) {
+  var(
+    param,
+    defaultValue,
+  ) {
     if (!this._value) {
       return defaultValue;
     }
@@ -15,7 +21,11 @@ class UrlMock {
     return 'lang/' + this._value;
   }
 
-  setParam(param, value) {
+  setParam(
+    param,
+    value,
+  ) {
     this._value = value;
   }
+
 }
