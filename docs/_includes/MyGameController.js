@@ -20,8 +20,8 @@ class MyGameController extends Service {
       successful,
       time,
     );
-    alert('You have a ' + successful + '% success rate in ' + time + ' seconds.');
     this.s('clock').stop();
+    this.showResult(time, successful);
   }
 
   newGame(
@@ -58,6 +58,18 @@ class MyGameController extends Service {
 
   gameRequestedInUrl() {
     return this.s('url').var('game', '');
+  }
+
+  // Function to show result
+  showResult(time, rate) {
+    if (rate == 100) {
+      this.services.get('app').showFireworks();
+    } else if (rate >= 60 && rate < 100) {
+      this.services.get('app').showResultScreen();
+      $('.final-success-rate-value').text('You have a ' + rate + '% success rate in ' + time + ' seconds.');
+    } else {
+      this.services.get('app').showRain();
+    }
   }
 
 }

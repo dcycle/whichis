@@ -50,6 +50,7 @@ class Game extends Service {
     $('.total-questions').text(total);
 
     if (current > total) {
+      --this.currentQuestionIndex;
       return true;
     }
     else {
