@@ -36,6 +36,11 @@ class App extends Service {
     this.s('effect').startFireworks();
   }
 
+  showResultScreen() {
+    $('.panel').hide();
+    $('.final-result').show();
+  }
+
   showMain() {
     this.resetAll();
   }
